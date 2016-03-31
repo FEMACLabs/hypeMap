@@ -1,0 +1,13 @@
+body {
+	text-align: center;	
+	background: #232625;
+}
+
+#logo {
+	width: 70%;
+	margin-top: 25%;
+}
+
+#stateIcon {
+	height: 60px;
+}
