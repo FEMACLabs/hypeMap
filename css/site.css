@@ -28,3 +28,155 @@ body {
 }
 
 /*end landing screen styles*/
+
+/*menu style*/
+
+#menu {
+	background: white;
+	text-align: center;
+}
+
+.startOver {
+	position: absolute;
+	left:10px;	
+	padding: 13px;
+	color:black;
+	text-decoration: none;
+}
+
+.startOver:hover {
+	color: gray;
+}
+
+.startOver .fa {
+	margin-right: 8px;	
+}
+
+.cityName {
+	font-size: large;	
+}
+
+/*end menu style*/
+
+/*weather styles*/
+
+#weatherMain {
+	background: gray;
+	border-radius: 50%;
+	color: white;
+	width: 250px;
+	height:250px;
+	margin:0 auto;
+}
+
+#detailsContainer {
+	position: relative;
+	width: 100%;
+}
+
+#detailsToggle {
+    color: white;
+    background: gray;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-left: 8%;
+    float: left;
+    padding: 5px 10px;
+}
+
+#detailsToggle:hover {
+	color: black;
+	background:white;	
+}
+
+#conditionIcon {
+	max-width: 50px;
+	margin-top: 10px;
+}
+
+#temp {
+    font-size: 7em;
+    margin: -20px;
+}
+
+#condition {
+    font-size: 1.7em;
+    font-weight: 600;
+    margin: 5px;	
+}
+
+#hiLo {
+    font-size: 1.2em;
+    margin: 15px;
+}
+
+.high {
+    font-weight: 600;
+    color: red;
+}
+
+.low {
+	color: blue;	
+}
+
+/*end weather styles*/
+
+/*twiter button style*/
+
+#twitterButton {
+    width: 300px;
+    margin: 18px auto;
+    padding: 18px 0px;
+    background: gray;
+    color: white;
+    border-radius: 40px;
+}
+
+#twitterButton .twitterButtonText {
+    display: block;
+    margin-top: 18px;
+    margin-right: 20px;
+    float: right;
+}
+
+#twitterButton .twitterIcon {
+	font-size: 3em;	
+}
+
+/*end twitter button styles*/
+
+/*activity slider style*/
+
+.bx-viewport {
+	padding-bottom: 20px;	
+	max-width: 450px;
+	margin: 0 auto;
+	background: gray !important;
+	border: none !important;
+	border-radius: 10px;
+	left: 0px !important;
+}
+
+#activities {
+	width: 90%;
+	max-width: 600px;
+	margin:10px auto;
+	color:white;
+}
+
+.activityImg {
+	position: absolute;	
+	margin-left: 5px;
+	border-radius: 10px;
+}
+
+.activityDesc {
+	text-align: center;
+	float:left;
+	float: right;
+	width: 70%;
+}
+
+/*end activity slider styles*/
+
