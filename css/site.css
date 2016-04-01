@@ -3,11 +3,28 @@ body {
 	background: #232625;
 }
 
+/*Landing screen styles*/
+
 #logo {
 	width: 70%;
-	margin-top: 25%;
+	max-width: 300px;
+	margin-top: 60px;
+}
+
+.citySelectWrapper {
+	width: 70%;
+	max-width:300px;
+	margin: 25px auto;
 }
 
 #stateIcon {
-	height: 60px;
+	height: 40px;
+	float: left;
+	margin-right: 10px;
 }
+
+#citySelect {
+	width: 75%;	
+}
+
+/*end landing screen styles*/
