@@ -22,7 +22,34 @@
             <h1 class="cityName">Orlando</h1>
         </div>
         <div class="pure-u-1" id="detailsContainer">
-        	<a href="#" id="detailsToggle">Details</a>
+            <div id="details">
+            	<table id="detailsTable">
+                	<th> Main - description</th>
+                    <th><img id="conditionIcon" src="images/conditionIcons/conditionIcon.svg" alt="Condition Icon"/></th>
+                    <tr>
+                    	<td>Lat: 444</td>
+                        <td>Lon: 00</td>
+                    </tr>
+                    <tr>
+                    	<td>Temp:</td>
+                        <td>55&deg; F</td>
+                    </tr>
+                    <tr>
+                    	<td>Low: 44&deg; F</td>
+                        <td>High: 44&deg; F</td>
+                    </tr>
+                    <tr>
+                    	<td>Humidity</td>
+                        <td>55%</td>
+                    </tr>
+                    <tr>
+                    	<td>Wind Speed</td>
+                        <td>55 mph</td>
+                    </tr>
+                </table>
+                <a href="#" id="detailsToggle">Details</a>
+            </div>
+            
         </div>
         <div class="pure-u-1">
             <div id="weatherMain">

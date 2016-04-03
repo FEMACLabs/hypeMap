@@ -69,29 +69,8 @@ body {
 	margin:0 auto;
 }
 
-#detailsContainer {
-	position: relative;
-	width: 100%;
-}
-
-#detailsToggle {
-    color: white;
-    background: gray;
-    border-radius: 10px;
-    text-decoration: none;
-    margin-top: 30px;
-    margin-left: 8%;
-    float: left;
-    padding: 5px 10px;
-}
-
-#detailsToggle:hover {
-	color: black;
-	background:white;	
-}
-
 #conditionIcon {
-	max-width: 50px;
+	width: 50px;
 	margin-top: 10px;
 }
 
@@ -121,6 +100,63 @@ body {
 }
 
 /*end weather styles*/
+
+/*weather deatil style*/
+
+#detailsContainer {
+	position: relative;
+	width: 100%;
+}
+
+#detailsToggle {
+    color: white;
+    background: gray;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: -300px;
+    margin-left: -45%;
+	position: fixed;
+    padding: 5px 10px;
+	
+	-webkit-transition: margin 1s; /* Safari */
+    transition: margin 1s;
+}
+
+#detailsToggle:hover {
+	color: black;
+	background:white;	
+}
+
+#detailsTable {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	background: #1591BD;
+	text-align: center;
+	position: relative;
+	top: -425px;
+	
+	-webkit-transition: top 1s; /* Safari */
+    transition: top 1s;
+}
+
+#detailsTable td {	
+	border: 1px solid;	
+	padding: 20px;
+	width: 50%;
+}
+
+.detailsOpen table {
+	top: 100px !important;	
+	position: relative !important; 
+		
+}
+
+.detailsOpen a {
+	margin-top: 100px !important;	
+}
+
+/*end weather detail styles*/
 
 /*twiter button style*/
 
@@ -180,3 +216,38 @@ body {
 
 /*end activity slider styles*/
 
+
+
+/*responsive edits*/
+
+/*pure-u-sm -- >568px*/
+@media screen and (min-width: 35.5em) {
+	
+	#detailsToggle {
+		margin-left: -30%;	
+	}
+	
+}
+
+/*pure-u-md -- >768px*/
+@media screen and (min-width: 48em) {
+	
+}
+
+/*pure-u-lg -- >1024px*/
+@media screen and (min-width: 64em) {
+	
+	#detailsToggle {
+    position: fixed;
+    margin-left: -250px;
+    float: none;
+	}
+	
+}
+
+/*pure-u-xl -- >1280px*/
+@media screen and (min-width: 80em) {
+	
+}
+
+/*end responsive edits*/
