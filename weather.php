@@ -51,7 +51,7 @@
             </div>
             
         </div>
-        <div class="pure-u-1">
+        <div id="weatherMainContainer" class="pure-u-1">
             <div id="weatherMain">
                 <img id="conditionIcon" src="images/conditionIcons/conditionIcon.svg" alt="Condition Icon"/>
                 <p id="temp">82&deg;</p>
@@ -59,7 +59,7 @@
                 <p id="hiLo"><span class="low">72&deg;</span> / <span class="high">93&deg;</span></p>
             </div>
         </div>
-        <div class="pure-u-1">
+        <div id="twitterContainer" class="pure-u-1">
             <div id="twitterButton">
                 <span class="twitterIcon"><i class="fa fa-twitter-square"></i></span>
                 <span class="twitterButtonText">See what others are doing...</span>

@@ -19,7 +19,7 @@ var activity2;
 var activity3;
 
 $(document).ready(function() {
-	
+	"use strict";
   $('#citySelect').bind('keyup', function(e) {
 	if ( e.keyCode === 13 ) { // 13 is enter key
 		citySearch();
@@ -47,57 +47,74 @@ $(document).ready(function() {
 });
 
 function listSearch(citySelection) {
+	"use strict";
         
-        switch(citySelection) {
-            case 'orlando':
-                jsonUrl = "data/cities/orlandoData.json";
-                break;
-            case 'newYork':
-                jsonUrl = "data/cities/newyorkData.json";
-                break;
-            case 'sanFrancisco':
-                jsonUrl = "data/cities/sanfranData.json";
-                break;
-            case 'houston':
-                jsonUrl = "data/cities/houstonData.json";
-                break;
-            case 'denver':
-                jsonUrl = "data/cities/denverData.json";
-                break;
-        }   
+	switch(citySelection) {
+		case 'orlando':
+			jsonUrl = "data/cities/orlandoData.json";
+			break;
+		case 'newYork':
+			jsonUrl = "data/cities/newyorkData.json";
+			break;
+		case 'sanFrancisco':
+			jsonUrl = "data/cities/sanfranData.json";
+			break;
+		case 'houston':
+			jsonUrl = "data/cities/houstonData.json";
+			break;
+		case 'denver':
+			jsonUrl = "data/cities/denverData.json";
+			break;
+	}   
 
-        loadData(jsonUrl);
+	loadData(jsonUrl);
 		
  }
  
  function loadData(jsonUrl) {
-            $.getJSON( jsonUrl, function( data ) {
-              
-			  	cityName = data.name;
-				weatherConditionId = data.weather.id;
-				weatherCondition = data.weather.main;
-				weatherDescription = data.weather.description;
-				cityLat = data.coord.lat;
-				cityLon = data.coord.lon;
-				weatherTemp = data.main.temp;
-				maxTemp = data.main.temp_max;
-				minTemp = data.main.temp_min;
-				humidity = data.main.humidity;
-				windSpeed = data.wind.speed;
-				
-				condition = assignCondition(weatherConditionId);
-                assignActivities(condition);
-				
-				generateMenu();
-				generateWeatherDetails();
-               
-			    $('.activitySlider').bxSlider(); 
-				$('.pure-g').fadeIn("slow");
-            });
+	 "use strict";
+	  $.getJSON( jsonUrl, function( data ) {
+		
+		  cityName = data.name;
+		  weatherConditionId = data.weather.id;
+		  weatherCondition = data.weather.main;
+		  weatherDescription = data.weather.description;
+		  cityLat = data.coord.lat;
+		  cityLon = data.coord.lon;
+		  weatherTemp = data.main.temp;
+		  maxTemp = data.main.temp_max;
+		  minTemp = data.main.temp_min;
+		  humidity = data.main.humidity;
+		  windSpeed = data.wind.speed;
+		  
+		  //round all temps
+		  weatherTemp = Number(weatherTemp);
+		  weatherTemp = Math.round(weatherTemp);
+		  
+		  maxTemp = Number(maxTemp);
+		  maxTemp = Math.round(maxTemp);
+		  
+		  minTemp = Number(minTemp);
+		  minTemp = Math.round(minTemp);
+		  
+		  condition = assignCondition(weatherConditionId);
+		  assignActivities(condition);
+		  
+		  generateMenu();
+		  generateWeatherDetails();
+		  generateWeatherMain();
+		  generateTwitter();
+		 
+		  $('.activitySlider').bxSlider(); 
+		  $('.pure-g').fadeIn("slow");
+	  });
+	  
+	   
  }
  
 //function to assign a condition based on weather ID code to appropriate condition
 function assignCondition(weatherConditionId) {
+	"use strict";
 	switch(weatherConditionId) {
 		//assign thunderstorm
 		case 200: case 201: case 202: case 210: case 211: case 212: case 221: case 230: case 231: case 232:
@@ -142,7 +159,7 @@ function assignCondition(weatherConditionId) {
 	//assign activities for current conndition
 function assignActivities(condition) {
 
-
+	"use strict";
 	switch(condition) {
 		case "thunderstorm": case "extreme":
 			activity1 = "boardGames";
@@ -189,6 +206,7 @@ function assignActivities(condition) {
 	
 	
 function generateMenu() {
+	"use strict";
 	$('<div id="menu"></div>').appendTo('.pure-g');
 	$('#menu').addClass("pure-u-1");
 	$('<a href="../hypeWeather1" class="startOver"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
@@ -196,6 +214,7 @@ function generateMenu() {
 }
 
 function generateWeatherDetails() {
+	"use strict";
 	//create Details Table
 	$('<div id="detailsContainer"></div>').appendTo('.pure-g');
 	$('#detailsContainer').addClass("pure-u-1");
@@ -217,6 +236,33 @@ function generateWeatherDetails() {
 	$('#detailsTable').click(toggleDetailsMenu);
 }
 
+function generateWeatherMain() {
+	"use strict";
+	$('<div id="weatherMainContainer" class="pure-u-1"></div>').appendTo('.pure-g');
+	$('<div id="weatherMain"></div>').appendTo('#weatherMainContainer');
+	$('<img id="conditionIcon" src="images/conditionIcons/conditionIcon.svg" alt="Condition Icon"/>').appendTo('#weatherMain');
+	$('<p id="temp">'+weatherTemp+'&deg;</p>').appendTo('#weatherMain');
+	$('<p id="condition">'+weatherCondition+'</p>').appendTo('#weatherMain');
+	$('<p id="hiLo"></p>').appendTo('#weatherMain');
+	
+	$('<span class="low">'+minTemp+'&deg; / </span>').appendTo('#hiLo');
+	$('<span class="high"> '+maxTemp+'&deg;</span>').appendTo('#hiLo');
+	
+}
+
+function generateTwitter() {
+	"use strict";
+	$('<div id="twitterContainer"></div>').appendTo('.pure-g');
+	$('#twitterContainer').addClass('pure-u-1');
+	
+	//create the twitter button on weather view
+	$('<div id="twitterButton"></div>').appendTo('#twitterContainer');
+	$('<span class="twitterIcon"><i class="fa fa-twitter-square"></i></span>').appendTo('#twitterButton');
+	$('<span class="twitterButtonText">See what others are doing...</span>').appendTo('#twitterButton');
+	
+}
+
 function toggleDetailsMenu() {
-		$('#details').toggleClass("detailsOpen");
+	"use strict";
+	$('#details').toggleClass("detailsOpen");
 }

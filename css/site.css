@@ -67,6 +67,7 @@ body {
 	width: 250px;
 	height:250px;
 	margin:0 auto;
+	margin-top: 50px;
 }
 
 #conditionIcon {
@@ -103,6 +104,10 @@ body {
 
 /*weather deatil style*/
 
+#details {
+	height: 0;	
+}
+
 #detailsContainer {
 	position: relative;
 	width: 100%;
@@ -113,7 +118,7 @@ body {
     background: gray;
     border-radius: 10px;
     text-decoration: none;
-    margin-top: -300px;
+    margin-top: -325px;
     margin-left: -45%;
 	position: fixed;
     padding: 5px 10px;
