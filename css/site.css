@@ -122,6 +122,7 @@ body {
     margin-left: -45%;
 	position: fixed;
     padding: 5px 10px;
+	z-index: 1;
 	
 	-webkit-transition: margin 1s; /* Safari */
     transition: margin 1s;
@@ -140,6 +141,7 @@ body {
 	text-align: center;
 	position: relative;
 	top: -425px;
+	z-index: 1;
 	
 	-webkit-transition: top 1s; /* Safari */
     transition: top 1s;

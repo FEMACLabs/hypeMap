@@ -65,7 +65,7 @@
                 <span class="twitterButtonText">See what others are doing...</span>
             </div>
         </div>
-        <div class="pure-u-1" id="activities">
+        <div class="pure-u-1" id="activitiesContainer">
             <div id="activities">
                 <ul class="activitySlider">
                   <li>
