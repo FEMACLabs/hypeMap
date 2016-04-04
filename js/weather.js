@@ -30,7 +30,7 @@ $(document).ready(function() {
   
   });
   
-  $('.citySubmit').click(citySearch);
+  $('#citySubmit').click(citySearch);
   
   
   
@@ -217,7 +217,7 @@ function generateMenu() {
 	"use strict";
 	$('<div id="menu"></div>').appendTo('.pure-g');
 	$('#menu').addClass("pure-u-1");
-	$('<a href="../hypeWeather1" class="startOver"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
+	$('<a href="../hypeWeather1" class="startOver appButton"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
 	$('<h1 class="cityName">'+cityName+'</h1>').appendTo('#menu');
 }
 
