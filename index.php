@@ -33,7 +33,7 @@
                                   <option value="denver">Denver</option>
                               </select>
                           </div>
-                          <a href="#" class="pure-button pure-button-primary citySubmit">Submit</a>
+                          <a href="#" id="citySubmit" class="pure-button pure-button-primary appButton">Submit</a>
                       </fieldset>
                   </form>
               </div>

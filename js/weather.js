@@ -30,13 +30,13 @@ $(document).ready(function() {
   
   });
   
-  $('.citySubmit').click(citySearch);
+  $('#citySubmit').click(citySearch);
   
   
   
   function citySearch() {
 	  var citySelection = $("#citySelect").val();
-		$('.pure-g').fadeOut("slow", function() {
+		$('.container').fadeOut("slow", function() {
 			$('.pure-g').empty();
 			
 			listSearch(citySelection);
@@ -44,7 +44,9 @@ $(document).ready(function() {
 			
 		});	
 	} 
+	
 	$('.activitySlider').bxSlider();
+	
 });
 
 function listSearch(citySelection) {
@@ -107,17 +109,13 @@ function listSearch(citySelection) {
 		  generateWeatherMain();
 		  generateTwitter();
 		  generateActivitySlides();
+		  $('.activitySlider').bxSlider();
 		  
-		  
-		  $('.activitySlider').ready(function() {
-			$('.activitySlider').bxSlider();  
-			  
-		   });
-		  
-		  $('.pure-g').fadeIn("slow");
+		  $("body").addClass("bg1");
 	  });
+	
 	  
-	   
+	   $('.container').fadeIn("slow");
  }
  
 //function to assign a condition based on weather ID code to appropriate condition
@@ -217,7 +215,7 @@ function generateMenu() {
 	"use strict";
 	$('<div id="menu"></div>').appendTo('.pure-g');
 	$('#menu').addClass("pure-u-1");
-	$('<a href="../hypeWeather1" class="startOver"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
+	$('<a href="../hypeWeather1" class="startOver appButton"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
 	$('<h1 class="cityName">'+cityName+'</h1>').appendTo('#menu');
 }
 
@@ -279,12 +277,10 @@ function generateActivitySlides() {
 	
 	$('<ul class="activitySlider"></ul>').appendTo('#activities');
 	
-	var activity;
 	//add activity 1
-	activity = activity1;
-	assignTitle(activity);
-	assignDesc(activity);
-	$('<li><div id="activity1"></div></li>').appendTo('.activitySlider');
+	assignTitle(activity1);
+	assignDesc(activity1);
+	$('<div id="activity1"></div>').appendTo('.activitySlider');
 	//img
 	$('<img class="activityImg" src="https://www.fillmurray.com/g/100/100" alt="activity1img">').appendTo('#activity1');
 	//description
@@ -293,24 +289,23 @@ function generateActivitySlides() {
 	$('<h3>'+title+'</h3>').appendTo('#activity1Desc');	
 	$('<p>'+desc+'</p>').appendTo('#activity1Desc');
 	
+	
 	//add activity 2
-	activity = activity2;
-	assignTitle(activity);
-	assignDesc(activity);
-	$('<li><div id="activity2"></div></li>').appendTo('.activitySlider');
+	assignTitle(activity2);
+	assignDesc(activity2);
+	$('<div id="activity2"></div>').appendTo('.activitySlider');
 	//img
 	$('<img class="activityImg" src="https://www.fillmurray.com/g/100/100" alt="activity1img">').appendTo('#activity2');
 	//description
-	$('<div id="activity1Desc">').appendTo('#activity2');
+	$('<div id="activity2Desc">').appendTo('#activity2');
 	$('#activity2Desc').addClass('activityDesc');
 	$('<h3>'+title+'</h3>').appendTo('#activity2Desc');	
 	$('<p>'+desc+'</p>').appendTo('#activity2Desc');
-
-	//add activity 3
-	activity = activity3;
-	assignTitle(activity);
-	assignDesc(activity);
-	$('<li><div id="activity3"></div></li>').appendTo('.activitySlider');
+	
+	//add activity 2
+	assignTitle(activity3);
+	assignDesc(activity3);
+	$('<div id="activity3"></div>').appendTo('.activitySlider');
 	//img
 	$('<img class="activityImg" src="https://www.fillmurray.com/g/100/100" alt="activity1img">').appendTo('#activity3');
 	//description
