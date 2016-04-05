@@ -3,12 +3,13 @@ body {
 }
 
 .container {
-	overflow:hidden;	
+	overflow:hidden;
 }
 
 .bg1 {
-	background:url(../images/background/liverpoolPlains.jpg);	
-}
+	background:url(../images/background/liverpoolPlains.jpg);
+	
+	}
 
 /*Landing screen styles*/
 
@@ -64,8 +65,9 @@ body {
 .startOver {
 	position: absolute;
 	left:10px;	
-	padding: 10px;
-	color:black;
+	padding: 15px 0;
+	color:white;
+	font-size: .8em;
 	text-decoration: none;
 }
 
@@ -83,10 +85,22 @@ body {
 
 /*end menu style*/
 
+#weatherMain, #twitterButton, #detailsTable {
+	-moz-box-shadow: 1px 4px 5px rgba(44,62,80,.5);
+	-webkit-box-shadow: 1px 4px 5px rgba(44,62,80,.5);
+	box-shadow: 1px 4px 5px rgba(44,62,80,.5);
+	
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2c3e50+0,2c3e50+100&0.9+0,1+90 */
+	background: -moz-linear-gradient(top,  rgba(44,62,80,0.9) 0%, rgba(44,62,80,1) 90%, rgba(44,62,80,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(44,62,80,0.9) 0%,rgba(44,62,80,1) 90%,rgba(44,62,80,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(44,62,80,0.9) 0%,rgba(44,62,80,1) 90%,rgba(44,62,80,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e62c3e50', endColorstr='#2c3e50',GradientType=0 ); /* IE6-9 */	
+}
+
 /*weather styles*/
 
 #weatherMain {
-	background: gray;
+
 	border-radius: 50%;
 	color: white;
 	width: 250px;
@@ -140,7 +154,7 @@ body {
 
 #detailsToggle {
     color: white;
-    background: gray;
+    background: #2C3E50;
     border-radius: 10px;
     text-decoration: none;
     margin-top: -325px;
@@ -162,11 +176,13 @@ body {
 	width: 100%;
 	max-width: 500px;
 	margin: 0 auto;
-	background: #1591BD;
 	text-align: center;
 	position: relative;
 	top: -425px;
 	z-index: 1;
+	color: white;
+
+
 	
 	-webkit-transition: top 1s; /* Safari */
     transition: top 1s;
@@ -196,9 +212,8 @@ body {
     width: 300px;
     margin: 18px auto;
     padding: 18px 0px;
-    background: gray;
     color: white;
-    border-radius: 40px;
+    border-radius: 15px;
 }
 
 #twitterButton .twitterButtonText {
@@ -220,10 +235,15 @@ body {
 	padding-bottom: 20px;	
 	max-width: 450px;
 	margin: 0 auto;
-	background: gray !important;
 	border: none !important;
 	border-radius: 10px;
+	
+	-moz-box-shadow: 1px 4px 5px rgba(44,62,80,.5) !important;
+	-webkit-box-shadow: 1px 4px 5px rgba(44,62,80,.5) !important;
+	box-shadow: 1px 4px 5px rgba(44,62,80,.5) !important;
+	
 	left: 0px !important;
+	background-color: #2C3E50 !important; 
 }
 
 #activities {

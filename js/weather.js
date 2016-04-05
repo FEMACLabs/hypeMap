@@ -215,7 +215,7 @@ function generateMenu() {
 	"use strict";
 	$('<div id="menu"></div>').appendTo('.pure-g');
 	$('#menu').addClass("pure-u-1");
-	$('<a href="../hypeWeather1" class="startOver appButton"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
+	$('<a href="../hypeWeather1" class="startOver class="appButton"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
 	$('<h1 class="cityName">'+cityName+'</h1>').appendTo('#menu');
 }
 
@@ -264,7 +264,7 @@ function generateTwitter() {
 	//create the twitter button on weather view
 	$('<div id="twitterButton"></div>').appendTo('#twitterContainer');
 	$('<span class="twitterIcon"><i class="fa fa-twitter-square"></i></span>').appendTo('#twitterButton');
-	$('<span class="twitterButtonText">See what others are doing...</span>').appendTo('#twitterButton');
+	$('<span class="twitterButtonText">See what others are doing <i class="fa fa-arrow-circle-right"></i></span>').appendTo('#twitterButton');
 	
 }
 

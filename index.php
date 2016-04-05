@@ -15,29 +15,29 @@
 </head>
 
 <body>
-	<div class="container">
-        <div class="pure-g">
-              <div class="pure-u-1">
-                  <img src="images/logo.svg" alt="Hype Map Logo" id="logo">
-              </div>
-              <div class="pure-u-1">
-                  <form class="pure-form pure-form-stacked">
-                      <fieldset>
-                          <div class="citySelectWrapper">
-                              <img id="stateIcon" src="images/stateIcons/testState.svg">
-                              <select name="citySelect" id="citySelect">
-                                  <option value="orlando">Orlando</option>
-                                  <option value="newYork">New York</option>
-                                  <option value="sanFrancisco">San Fransisco</option>
-                                  <option value="houston">Houston</option>
-                                  <option value="denver">Denver</option>
-                              </select>
-                          </div>
-                          <a href="#" id="citySubmit" class="pure-button pure-button-primary appButton">Submit</a>
-                      </fieldset>
-                  </form>
-              </div>
-         </div>
+<div class="container">
+    <div class="pure-g">
+          <div class="pure-u-1">
+              <img src="images/logo.svg" alt="Hype Map Logo" id="logo">
+          </div>
+          <div class="pure-u-1">
+              <form class="pure-form pure-form-stacked">
+                  <fieldset>
+                      <div class="citySelectWrapper">
+                          <img id="stateIcon" src="images/stateIcons/testState.svg">
+                          <select name="citySelect" id="citySelect">
+                              <option value="orlando">Orlando</option>
+                              <option value="newYork">New York</option>
+                              <option value="sanFrancisco">San Fransisco</option>
+                              <option value="houston">Houston</option>
+                              <option value="denver">Denver</option>
+                          </select>
+                      </div>
+                      <a href="#" id="citySubmit" class="pure-button pure-button-primary appButton">Submit</a>
+                  </fieldset>
+              </form>
+          </div>
+     </div>
      </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
