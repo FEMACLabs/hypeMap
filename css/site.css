@@ -85,6 +85,28 @@ body {
 
 /*end menu style*/
 
+#weatherMainContainer {
+	max-width: 500px;
+	margin: 0 auto;
+	
+	-webkit-transition: position 1s; /* Safari */
+    transition: position 1s;	
+}
+
+#twitterMainContainer {
+	max-width: 500px;
+	margin: 0 auto;	
+	float: left;
+	
+	-webkit-transition: position 1s; /* Safari */
+    transition: position 1s;
+}
+
+.absolute {
+	position: absolute;	
+	display: none;
+}
+
 #weatherMain, #twitterButton, #detailsTable {
 	-moz-box-shadow: 1px 4px 5px rgba(44,62,80,.5);
 	-webkit-box-shadow: 1px 4px 5px rgba(44,62,80,.5);
@@ -106,7 +128,6 @@ body {
 	width: 250px;
 	height:250px;
 	margin:0 auto;
-	margin-top: 30px;
 }
 
 #conditionIcon {

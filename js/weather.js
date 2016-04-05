@@ -78,6 +78,9 @@ function listSearch(citySelection) {
  function loadData(jsonUrl) {
 	 "use strict";
 	  $.getJSON( jsonUrl, function( data ) {
+		  
+		  
+		
 		
 		  cityName = data.name;
 		  weatherConditionId = data.weather.id;
@@ -105,6 +108,8 @@ function listSearch(citySelection) {
 		  assignActivities(condition);
 		  
 		  generateMenu();
+		  //build weather view
+		  $('<div id="weatherMainContainer" class="pure-u-1"></div>').appendTo('.pure-g');
 		  generateWeatherDetails();
 		  generateWeatherMain();
 		  generateTwitter();
@@ -112,6 +117,10 @@ function listSearch(citySelection) {
 		  $('.activitySlider').bxSlider();
 		  
 		  $("body").addClass("bg1");
+		  
+		  //build twitter view
+		   $('<div id="twitterMainContainer" class="pure-u-1 absolute"></div>').appendTo('.pure-g');
+		  generateGoogleMap();
 	  });
 	
 	  
@@ -222,7 +231,7 @@ function generateMenu() {
 function generateWeatherDetails() {
 	"use strict";
 	//create Details Table
-	$('<div id="detailsContainer"></div>').appendTo('.pure-g');
+	$('<div id="detailsContainer"></div>').appendTo('#weatherMainContainer');
 	$('#detailsContainer').addClass("pure-u-1");
 	$('<div id="details"></div>').appendTo('#detailsContainer');
 	$('<table id="detailsTable"></table>').appendTo('#details');
@@ -244,7 +253,6 @@ function generateWeatherDetails() {
 
 function generateWeatherMain() {
 	"use strict";
-	$('<div id="weatherMainContainer" class="pure-u-1"></div>').appendTo('.pure-g');
 	$('<div id="weatherMain"></div>').appendTo('#weatherMainContainer');
 	$('<img id="conditionIcon" src="images/conditionIcons/'+condition+'.svg" alt="Condition Icon"/>').appendTo('#weatherMain');
 	$('<p id="temp">'+weatherTemp+'&deg;</p>').appendTo('#weatherMain');
@@ -258,19 +266,25 @@ function generateWeatherMain() {
 
 function generateTwitter() {
 	"use strict";
-	$('<div id="twitterContainer"></div>').appendTo('.pure-g');
+	$('<div id="twitterContainer"></div>').appendTo('#weatherMainContainer');
 	$('#twitterContainer').addClass('pure-u-1');
 	
 	//create the twitter button on weather view
 	$('<div id="twitterButton"></div>').appendTo('#twitterContainer');
 	$('<span class="twitterIcon"><i class="fa fa-twitter-square"></i></span>').appendTo('#twitterButton');
 	$('<span class="twitterButtonText">See what others are doing <i class="fa fa-arrow-circle-right"></i></span>').appendTo('#twitterButton');
-	
+	$('#twitterButton').click(function() {
+		$('.pure-g').fadeOut("slow", function() {
+			$('#weatherMainContainer').addClass("absolute");
+			$('#twitterMainContainer').removeClass("absolute");
+		});
+		$('.pure-g').fadeIn("slow");		
+	});
 }
 
 function generateActivitySlides() {
 	"use strict";
-	$('<div id="activitiesContainer"></div>').appendTo('.pure-g');
+	$('<div id="activitiesContainer"></div>').appendTo('#weatherMainContainer');
 	$('#activitiesContainer').addClass("pure-u-1");
 	
 	$('<div id="activities"></div>').appendTo('#activitiesContainer');
@@ -407,3 +421,17 @@ function toggleDetailsMenu() {
 	"use strict";
 	$('#details').toggleClass("detailsOpen");
 }
+
+function generateGoogleMap() {
+	"use strict";
+		$('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14011.646569539238!2d-81.2000599!3d28.6024274!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5fd59b92b3c79bab!2sUniversity+of+Central+Florida!5e0!3m2!1sen!2sus!4v1459893667811" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>').appendTo('#twitterMainContainer');
+		$('<a href="#" class="goBack appButton"><i class="fa fa-caret-square-o-left"></i>Go Back</a>').appendTo('#twitterMainContainer');
+		
+		$('.goBack').click(function() {
+			$('.pure-g').fadeOut("slow", function() {
+				$('#twitterMainContainer').addClass("absolute");
+				$('#weatherMainContainer').removeClass("absolute");
+			});
+			$('.pure-g').fadeIn("slow");		
+		});
+	}
