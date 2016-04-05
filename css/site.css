@@ -2,6 +2,14 @@ body {
 	text-align: center;	
 }
 
+.container {
+	overflow:hidden;	
+}
+
+.bg1 {
+	background:url(../images/background/liverpoolPlains.jpg);	
+}
+
 /*Landing screen styles*/
 
 #logo {
