@@ -15,7 +15,6 @@
 </head>
 
 <body>
-<div class="container">
     <div class="pure-g">
           <div class="pure-u-1">
               <img src="images/logo.svg" alt="Hype Map Logo" id="logo">
@@ -37,7 +36,6 @@
                   </fieldset>
               </form>
           </div>
-     </div>
      </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>

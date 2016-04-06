@@ -17,9 +17,14 @@
 
 <div class="container">
 	<div class="pure-g">
-    	<div class="pure-u-1" id="menu">
-        	<a href="../hypeWeather1" class="startOver"><i class="fa fa-caret-square-o-left"></i>Start Over</a>
-            <h1 class="cityName">Orlando</h1>
+    	<div class="pure-menu menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link"><i class="fa fa-fast-backward"></i>Start Over</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Weather</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Map</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Most Popular</a></li>
+                 <li class="pure-menu-item"><a href="#" class="pure-menu-link menuToggle"><i class="fa fa-caret-square-o-down"></i>Orlando</a></li>
+            </ul>
         </div>
         <div class="pure-u-1" id="detailsContainer">
             <div id="details">

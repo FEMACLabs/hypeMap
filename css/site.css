@@ -4,6 +4,7 @@ body {
 
 .container {
 	overflow:hidden;
+	width: 100%;
 }
 
 .bg1 {
@@ -56,20 +57,43 @@ body {
 
 /*menu style*/
 
-#menu {
+.menu {
 	background: #2C3E50;
-	color: white;
-	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: -20.5em;
+	letter-spacing: normal;
+	z-index: +2;
+	
+	-webkit-transition: top 1s;
+	transition: top 1s;
 }
 
-.startOver {
+.pure-menu-link {
+	color: white;	
+	padding: 2em;
+}
+
+.pure-menu-link:hover, .pure-menu-link:focus {
+	background: #2C3E50;
+}
+
+.menuOpen {
+	top: 0 !important;	
+}
+
+.menuToggle {
+	padding: 1em;	
+}
+
+/*.startOver {
 	position: absolute;
 	left:10px;	
 	padding: 15px 0;
 	color:white;
 	font-size: .8em;
 	text-decoration: none;
-}
+}*/
 
 .startOver:hover {
 	color: gray;
@@ -88,15 +112,25 @@ body {
 #weatherMainContainer {
 	max-width: 500px;
 	margin: 0 auto;
+	margin-top: 40px;
 	
 	-webkit-transition: position 1s; /* Safari */
     transition: position 1s;	
 }
 
 #twitterMainContainer {
-	max-width: 500px;
-	margin: 0 auto;	
-	float: left;
+	max-width: 900px;
+	margin: 0 auto;
+	margin-top: 60px;
+	
+	-webkit-transition: position 1s; /* Safari */
+    transition: position 1s;
+}
+
+#twitterFeedContainer {
+	max-width: 700px;
+	margin: 0 auto;
+	margin-top: 60px;
 	
 	-webkit-transition: position 1s; /* Safari */
     transition: position 1s;
@@ -178,14 +212,14 @@ body {
     background: #2C3E50;
     border-radius: 10px;
     text-decoration: none;
-    margin-top: -325px;
+	top: 65px;
     margin-left: -45%;
 	position: fixed;
     padding: 5px 10px;
 	z-index: 1;
 	
-	-webkit-transition: margin 1s; /* Safari */
-    transition: margin 1s;
+	-webkit-transition: margin 1s, top 1s; /* Safari */
+    transition: margin 1s, top 1s;
 }
 
 #detailsToggle:hover {
@@ -222,7 +256,7 @@ body {
 }
 
 .detailsOpen a {
-	margin-top: 100px !important;	
+	top: 500px !important;	
 }
 
 /*end weather detail styles*/

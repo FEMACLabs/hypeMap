@@ -36,7 +36,7 @@ $(document).ready(function() {
   
   function citySearch() {
 	  var citySelection = $("#citySelect").val();
-		$('.container').fadeOut("slow", function() {
+		$('.pure-g').fadeOut("slow", function() {
 			$('.pure-g').empty();
 			
 			listSearch(citySelection);
@@ -108,8 +108,9 @@ function listSearch(citySelection) {
 		  assignActivities(condition);
 		  
 		  generateMenu();
+		  $('<div class="container"></div>').appendTo('.pure-g');
 		  //build weather view
-		  $('<div id="weatherMainContainer" class="pure-u-1"></div>').appendTo('.pure-g');
+		  $('<div id="weatherMainContainer" class="pure-u-1"></div>').appendTo('.container');
 		  generateWeatherDetails();
 		  generateWeatherMain();
 		  generateTwitter();
@@ -119,12 +120,16 @@ function listSearch(citySelection) {
 		  $("body").addClass("bg1");
 		  
 		  //build twitter view
-		   $('<div id="twitterMainContainer" class="pure-u-1 absolute"></div>').appendTo('.pure-g');
+		   $('<div id="twitterMainContainer" class="pure-u-1 absolute"></div>').appendTo('.container');
 		  generateGoogleMap();
+		  
+		  // build twitter feed view
+		  $('<div id="twitterFeedContainer" class="pure-u-1 absolute"></div>').appendTo('.container');
+		  generateTwitterFeed();
 	  });
 	
 	  
-	   $('.container').fadeIn("slow");
+	   $('.pure-g').fadeIn("slow");
  }
  
 //function to assign a condition based on weather ID code to appropriate condition
@@ -220,12 +225,76 @@ function assignActivities(condition) {
 } 
 	
 	
-function generateMenu() {
+/*function generateMenu() {
 	"use strict";
 	$('<div id="menu"></div>').appendTo('.pure-g');
 	$('#menu').addClass("pure-u-1");
 	$('<a href="../hypeWeather1" class="startOver class="appButton"><i class="fa fa-caret-square-o-left"></i>Start Over</a>').appendTo('#menu');
 	$('<h1 class="cityName">'+cityName+'</h1>').appendTo('#menu');
+}*/
+
+
+function generateMenu() {
+	"use strict";
+	
+	$('<div class="pure-menu menu"></div>').appendTo('.pure-g');
+	$('<ul class="pure-menu-list"></ul>').appendTo('.menu');
+	$('<li class="pure-menu-item"><a href="../hypeWeather1" class="pure-menu-link startOver"><i class="fa fa-fast-backward"></i>Start Over</a></li>').appendTo('.pure-menu-list');
+	$('<li class="pure-menu-item"><a href="#" class="pure-menu-link weatherLink">Weather</a></li>').appendTo('.pure-menu-list');
+	$('<li class="pure-menu-item"><a href="#" class="pure-menu-link mapLink">Map</a></li>').appendTo('.pure-menu-list');
+	$('<li class="pure-menu-item"><a href="#" class="pure-menu-link feedLink">Most Popular</a></li>').appendTo('.pure-menu-list');
+	$('<li class="pure-menu-item"><a href="#" class="pure-menu-link menuToggle"><i id="menuArrow" class="fa fa-caret-square-o-down"></i>'+cityName+'</a></li>').appendTo('.pure-menu-list');
+	
+	
+	applyMenuClickEvents();
+	
+}
+
+function applyMenuClickEvents() {
+	"use strict";
+	$('.menuToggle').click(function() {
+		$('.menu').toggleClass("menuOpen");
+		$('#menuArrow').toggleClass("fa-caret-square-o-down");
+		$('#menuArrow').toggleClass("fa-caret-square-o-up");
+	});	
+	
+	
+	$('.mapLink').click(function() {
+		$('.menu').toggleClass("menuOpen");
+		$('#menuArrow').toggleClass("fa-caret-square-o-down");
+		$('#menuArrow').toggleClass("fa-caret-square-o-up");
+		$('.container').fadeOut("slow", function() {
+			$('#weatherMainContainer').addClass("absolute");
+			$('#twitterFeedContainer').addClass("absolute");
+			$('#twitterMainContainer').removeClass("absolute");
+		});
+		$('.container').fadeIn("slow");		
+	});
+	
+	$('.weatherLink').click(function() {
+		$('.menu').toggleClass("menuOpen");
+		$('#menuArrow').toggleClass("fa-caret-square-o-down");
+		$('#menuArrow').toggleClass("fa-caret-square-o-up");
+		$('.container').fadeOut("slow", function() {
+			$('#twitterMainContainer').addClass("absolute");
+			$('#twitterFeedContainer').addClass("absolute");
+			$('#weatherMainContainer').removeClass("absolute");
+		});
+		$('.container').fadeIn("slow");		
+	});
+	
+	$('.feedLink').click(function() {
+		$('.menu').toggleClass("menuOpen");
+		$('#menuArrow').toggleClass("fa-caret-square-o-down");
+		$('#menuArrow').toggleClass("fa-caret-square-o-up");
+		$('.container').fadeOut("slow", function() {
+			$('#twitterMainContainer').addClass("absolute");
+			$('#weatherMainContainer').addClass("absolute");
+			$('#twitterFeedContainer').removeClass("absolute");
+		});
+		$('.container').fadeIn("slow");		
+	});
+	
 }
 
 function generateWeatherDetails() {
@@ -273,12 +342,13 @@ function generateTwitter() {
 	$('<div id="twitterButton"></div>').appendTo('#twitterContainer');
 	$('<span class="twitterIcon"><i class="fa fa-twitter-square"></i></span>').appendTo('#twitterButton');
 	$('<span class="twitterButtonText">See what others are doing <i class="fa fa-arrow-circle-right"></i></span>').appendTo('#twitterButton');
+	
 	$('#twitterButton').click(function() {
-		$('.pure-g').fadeOut("slow", function() {
+		$('.container').fadeOut("slow", function() {
 			$('#weatherMainContainer').addClass("absolute");
 			$('#twitterMainContainer').removeClass("absolute");
 		});
-		$('.pure-g').fadeIn("slow");		
+		$('.container').fadeIn("slow");		
 	});
 }
 
@@ -428,10 +498,15 @@ function generateGoogleMap() {
 		$('<a href="#" class="goBack appButton"><i class="fa fa-caret-square-o-left"></i>Go Back</a>').appendTo('#twitterMainContainer');
 		
 		$('.goBack').click(function() {
-			$('.pure-g').fadeOut("slow", function() {
+			$('.container').fadeOut("slow", function() {
 				$('#twitterMainContainer').addClass("absolute");
 				$('#weatherMainContainer').removeClass("absolute");
 			});
-			$('.pure-g').fadeIn("slow");		
+			$('.container').fadeIn("slow");		
 		});
-	}
+}
+
+function generateTwitterFeed() {
+		"use strict";
+		$('<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201880.51115438552!2d-122.57768437848272!3d37.75761709727139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1459981914641" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>').appendTo('#twitterFeedContainer');
+}
